@@ -16,9 +16,15 @@ let attempts = 10;
 // • O jogador insere um número.
 let numberEnteredByThePlayer = 0;
 
+// • Armazenar o histórico de palpites em um array.
+let guessesHistory = [];
+
 // • O sistema responde se o número é maior, menor ou igual ao número secreto.
 do {
     numberEnteredByThePlayer = Number(prompt("Adivinhe o número entre 1 e 100:"));
+
+    // • Armazenar o histórico de palpites em um array.
+    guessesHistory.push(numberEnteredByThePlayer);    
 
     if (numberEnteredByThePlayer === secretNumber) {
         // • Se acertar, mostrar mensagem de parabéns e quantas tentativas foram usadas.
@@ -39,10 +45,11 @@ do {
         console.log(`Você perdeu! O número secreto era ${secretNumber}.`);
     };
 
+    // • Exibe o histórico de palpites no console.
+console.log(`Histórico de palpites: ${guessesHistory}`);
+
 } while (attempts > 0 || numberEnteredByThePlayer !== secretNumber);
 
-
-// • Armazenar o histórico de palpites em um array e exibir no console.
 
 // Mini Jogo de Adivinhação de Números
 
