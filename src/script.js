@@ -7,17 +7,40 @@ console.log("Script loaded successfully!");
 // Requisitos:
 
 // • O sistema deve gerar um número secreto entre 1 e 100.
+let secretNumber = Math.floor(Math.random() * 100) + 1;
 
 // • O jogador terá 10 tentativas para acertar.
+let attempts = 10;
 
 // • A cada tentativa:
 // • O jogador insere um número.
+let numberEnteredByThePlayer = 0;
 
 // • O sistema responde se o número é maior, menor ou igual ao número secreto.
+do {
+    numberEnteredByThePlayer = Number(prompt("Adivinhe o número entre 1 e 100:"));
 
-// • Se acertar, mostrar mensagem de parabéns e quantas tentativas foram usadas.
+    if (numberEnteredByThePlayer === secretNumber) {
+        // • Se acertar, mostrar mensagem de parabéns e quantas tentativas foram usadas.
+        console.log(`Parabéns! Você acertou o número ${secretNumber} em ${11 - attempts} tentativas.`);
+        break;
+    } else if (numberEnteredByThePlayer < secretNumber) {
+        console.log(`O número secreto é maior que ${numberEnteredByThePlayer}.`);
+    } else {
+        console.log(`O número secreto é menor que ${numberEnteredByThePlayer}.`);
+    };
 
-// • Se errar todas, revelar o número secreto no final. 
+    console.log(`Você tem ${attempts - 1} tentativas restantes.`);
+
+    attempts -= 1;
+    
+    // • Se errar todas, revelar o número secreto no final. 
+    if (attempts === 0) {
+        console.log(`Você perdeu! O número secreto era ${secretNumber}.`);
+    };
+
+} while (attempts > 0 || numberEnteredByThePlayer !== secretNumber);
+
 
 // • Armazenar o histórico de palpites em um array e exibir no console.
 
