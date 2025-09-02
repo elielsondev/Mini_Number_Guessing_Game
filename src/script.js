@@ -48,7 +48,7 @@ do {
     // • Exibe o histórico de palpites no console.
 console.log(`Histórico de palpites: ${guessesHistory}`);
 
-} while (attempts > 0 || numberEnteredByThePlayer !== secretNumber);
+} while (attempts > 0 && numberEnteredByThePlayer !== secretNumber);
 
 
 // Mini Jogo de Adivinhação de Números
